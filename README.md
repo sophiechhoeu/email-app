@@ -27,4 +27,12 @@ get - watch for incoming requests with this method
 
 / - watch for requests trying to access '/'
 
-app.listen(5000) - express telling node to watch for any traffic coming into this port
+
+
+## Google oauth Strategy
+
+```js
+passport.use(new GoogleStrategy());
+```
+
+creating a new instance of the google Strategy
