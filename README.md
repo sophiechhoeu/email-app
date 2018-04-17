@@ -61,3 +61,9 @@ app.get('/api/current_user', (req, res) => {
 request comes in -> cookie session extracts the data -> passport pulls user id out of the cookie session -> deserialize usr to turn the user id into a user -> this user model instance is added to the req object as req.user
 
 this will show our user id and our google id as json
+
+## React App
+
+prior to deployment you will need to run build which will create a main.js public file that in will be served by the Node/express api back to the browser (and it gets automatically rewritten by heroku ) so relative routing like auth/google is automatic to the production environment
+
+In production, the react server no longer exists 
