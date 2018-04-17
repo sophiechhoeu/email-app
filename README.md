@@ -36,3 +36,28 @@ passport.use(new GoogleStrategy());
 ```
 
 creating a new instance of the google Strategy
+
+clientID
+public token - identifies app to google servers
+
+client secret- private
+
+## Mongoose / MongoDB
+
+Model class- represents one collection in Mongo DB
+Model instance - represents one individual record in the collection
+
+```js
+  new User({ googleId: profile.id }).save();
+```
+creates a model instance and saves it to the mlab database
+
+
+```js
+app.get('/api/current_user', (req, res) => {
+  res.send(req.user);
+```
+
+request comes in -> cookie session extracts the data -> passport pulls user id out of the cookie session -> deserialize usr to turn the user id into a user -> this user model instance is added to the req object as req.user
+
+this will show our user id and our google id as json
