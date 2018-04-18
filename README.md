@@ -66,4 +66,49 @@ this will show our user id and our google id as json
 
 prior to deployment you will need to run build which will create a main.js public file that in will be served by the Node/express api back to the browser (and it gets automatically rewritten by heroku ) so relative routing like auth/google is automatic to the production environment
 
-In production, the react server no longer exists 
+In production, the react server no longer exists
+
+## Ajax request
+
+```js
+function fetchAlbums() {
+  fetch('https://rallycoding.herokuapp.com/api/music_albums')
+  .then(res => res.json())
+  .then(json => console.log(json));
+}
+
+fetchAlbums();
+```
+
+Async request returns a promise
+.then is called if request is successful with the value returned from the async request
+
+fetch() returns a Promise
+.then(res => res.json()) fetch resolves its promise with an object representing the request.
+You can get the real json response by calling '.json()' on it. This returns another promise
+.then(json => console.log(json)) - after getting the json console log it.
+
+```js
+async function fetchAlbums() {
+  const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums')
+const json = await res.json();
+console.log(json);
+}
+
+fetchAlbums();
+```
+or arrow function
+
+```js
+const fetchAlbums = async () => {
+  const res = await fetch('https://rallycoding.herokuapp.com/api/music_albums')
+const json = await res.json();
+console.log(json);
+}
+
+fetchAlbums();
+```
+
+async keyword - to any function that requires async code
+await keyword - any statement that produces a promise
+infront of await promise, we assign the resolve to a variable
