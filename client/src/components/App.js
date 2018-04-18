@@ -9,7 +9,12 @@ const Landing = () => <h2>Landing</h2>
 const App = () => {
   return (
     <div>
-    
+     <BrowserRouter>
+       <div>
+         <Route path="/" component={Landing} />
+         
+       </div>
+     </BrowserRouter>
     </div>
   );
 };
